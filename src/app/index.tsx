@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Food from './pages/Food';
-import Restaurants from './pages/Restaurants';
+import FoodPage from './pages/food-page';
+import RestaurantsPage from './pages/restaurants-page';
 import LayoutHeader from './components/layout-header';
 
 export default function AppContainer() {
@@ -9,9 +9,9 @@ export default function AppContainer() {
     <BrowserRouter>
       <LayoutHeader />
       <Routes>
-        <Route path="/" element={<Food />} />
-        <Route path="food" element={<Food />} />
-        <Route path="restaurants" element={<Restaurants />} />
+        <Route path="/" element={<FoodPage />} />
+        <Route path="food" element={<FoodPage />} />
+        <Route path="restaurants" element={<RestaurantsPage />} />
       </Routes>
     </BrowserRouter>
   );
