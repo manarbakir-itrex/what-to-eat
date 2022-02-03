@@ -1,5 +1,13 @@
+@import "/src/assets/styles/functions";
+
 .cards-wrapper {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: gap();
+
+  > .ant-card {
+    width: 100%;
+    max-width: 280px;
+  }
 }

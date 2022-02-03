@@ -3,7 +3,7 @@ import RestaurantsIcon from '../../../../assets/icons/restaurant.svg';
 import { Restaurant } from '../../../types';
 
 import './restaunrant-details.scss';
-import ItemRating from '../../item-rating';
+import AverageItemRating from '../../average-item-rating';
 import UserItemRating from '../../user-item-rating';
 
 type RestaurantDetailsProps = {
@@ -15,23 +15,32 @@ export default function RestaurantDetails({ restaurant }: RestaurantDetailsProps
     <div className="restaurant-details">
       <div className="restaurant-details_header">
         <h2 className="restaurant-details_name">{restaurant?.name}</h2>
-        <ItemRating currentRating={4} />
-        <UserItemRating
-          itemName={restaurant.name}
-        />
+
+        <div className="restaurant-details_rating">
+          <AverageItemRating currentRating={4} />
+          <UserItemRating itemName={restaurant.name} />
+        </div>
       </div>
 
       <div className="restaurant-details_description-wrapper">
-        <img
-          className="restaurant-details_image"
-          src={restaurant?.imageUrl || RestaurantsIcon}
-          alt={restaurant?.name}
-        />
+        <figure className="restaurant-details_image-wrapper">
+          <img
+            className="restaurant-details_image"
+            src={restaurant?.imageUrl || RestaurantsIcon}
+            alt={restaurant?.name}
+          />
+        </figure>
+
+        <p className="restaurant-details_cuisine">
+          {restaurant?.cuisine}
+        </p>
+
         <p className="restaurant-details_description">
           {restaurant?.description}
         </p>
-        <p className="restaurant-details_description">
-          {restaurant?.cuisine}
+
+        <p className="restaurant-details_address">
+          {restaurant?.address}
         </p>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Modal, Rate } from 'antd';
+import { Modal, Rate, Space } from 'antd';
 import { MAX_RATING } from '../../constants/constants';
 
 type ChangeRatingModalProps = {
@@ -35,8 +35,10 @@ export default function ChangeRatingModal({
       onCancel={onCancelClick}
     >
       <h2 className="change-rating-modal_title">
-        Rate this:
-        {itemName}
+        <Space>
+          Rate this:
+          {itemName}
+        </Space>
       </h2>
       <div className="change-rating-modal_rating">
         <Rate

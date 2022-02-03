@@ -2,13 +2,15 @@ import React from 'react';
 import { Affix, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 
+import './layout-header.scss';
+
 export default function LayoutHeader() {
   return (
     <Affix offsetTop={0}>
       <div className="layout-header">
-        <h1>What to Eat?</h1>
+        <Link to="/" className="logo">What to Eat?</Link>
 
-        <Menu mode="horizontal">
+        <Menu className="menu-transparent" mode="horizontal">
           <Menu.Item key="food">
             <Link to="/food">Food</Link>
           </Menu.Item>

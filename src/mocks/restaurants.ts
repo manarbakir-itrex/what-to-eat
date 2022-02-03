@@ -2,7 +2,8 @@ const RESTAURANTS_MOCK = [
   {
     id: '1',
     name: 'Mission Chinese Food',
-    img: null,
+    description: 'Some delicious chinese food',
+    img: 'https://images.pexels.com/photos/4913345/pexels-photo-4913345.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     address: '171 E Broadway, New York, NY 10002',
     cuisine_type: 'Asian',
     operating_hours: {
@@ -18,7 +19,7 @@ const RESTAURANTS_MOCK = [
   {
     id: '2',
     name: 'Emily',
-    img: null,
+    img: 'https://images.pexels.com/photos/1596884/pexels-photo-1596884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     address: '919 Fulton St, Brooklyn, NY 11238',
     cuisine_type: 'Pizza',
     operating_hours: {
@@ -82,7 +83,7 @@ const RESTAURANTS_MOCK = [
   {
     id: '6',
     name: 'Hometown BBQ',
-    img: null,
+    img: 'https://images.pexels.com/photos/6605781/pexels-photo-6605781.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
     address: '454 Van Brunt St, Brooklyn, NY 11231',
     cuisine_type: 'American',
     operating_hours: {
@@ -98,7 +99,7 @@ const RESTAURANTS_MOCK = [
   {
     id: '7',
     name: 'Superiority Burger',
-    img: null,
+    img: 'https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     address: '430 E 9th St, New York, NY 10009',
     cuisine_type: 'American',
     operating_hours: {
@@ -130,7 +131,7 @@ const RESTAURANTS_MOCK = [
   {
     id: '9',
     name: 'Mu Ramen',
-    img: null,
+    img: 'https://images.pexels.com/photos/3887985/pexels-photo-3887985.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
     address: '1209 Jackson Ave, Queens, NY 11101',
     cuisine_type: 'Asian',
     operating_hours: {
@@ -146,7 +147,7 @@ const RESTAURANTS_MOCK = [
   {
     id: '10',
     name: 'Casa Enrique',
-    img: null,
+    img: 'https://images.unsplash.com/photo-1613478549952-47b2db19e194?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80',
     address: '5-48 49th Ave, Queens, NY 11101',
     cuisine_type: 'Mexican',
     operating_hours: {

@@ -1,0 +1,5 @@
+@import "./variables";
+
+@function gap($val: 1) {
+  @return $val * $gap;
+}

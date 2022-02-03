@@ -1,0 +1,14 @@
+@import "/src/assets/styles/variables";
+@import "/src/assets/styles/functions";
+
+.average-item-rating {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  border: 0;
+  padding: gap(0.25);
+
+  .anticon {
+    color: $yellow;
+  }
+}

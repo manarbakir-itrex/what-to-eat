@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* antd overrides */
+.ant-menu.menu-transparent {
+  background: transparent;
+
+  &.ant-menu-horizontal {
+    border-bottom-color: transparent;
+  }
+}
