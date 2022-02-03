@@ -7,3 +7,8 @@ export const selectRestaurantsRecords = createSelector(
   selectRestaurantsState,
   (restaurantsData) => restaurantsData.records,
 );
+
+export const selectSingleRestaurantRecord = createSelector(
+  selectRestaurantsState,
+  (restaurantsData) => restaurantsData.singleRecord,
+);
