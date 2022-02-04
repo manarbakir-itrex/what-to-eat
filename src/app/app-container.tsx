@@ -12,7 +12,7 @@ import './app-container.scss';
 
 export default function AppContainer() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/what-to-eat">
       <Layout className="app-container">
         <LayoutHeader />
         <Content className="app-container_content-container">
