@@ -1,22 +1,25 @@
 import RESTAURANTS_MOCK from '../../mocks/restaurants';
-import { restaurantDmToVm } from '../transformers/restaurant-transformer';
-import { Restaurant } from '../types';
+import { restaurantDmToVm, restaurantVmToDm } from '../transformers/restaurant-transformer';
+import { RestaurantDm } from '../types';
+import MockedApiAdapter from './mocked-api-adapter';
 
-const fetchList = () => new Promise<Restaurant[]>((res) => {
-  res(RESTAURANTS_MOCK.map((restaurant) => restaurantDmToVm(restaurant)));
-});
+const api = new MockedApiAdapter<RestaurantDm>('restaurants', RESTAURANTS_MOCK);
 
-const fetchById = (id: string) => new Promise<Restaurant>((res, rej) => {
-  const foundRestaurant = RESTAURANTS_MOCK.find((restaurant) => (restaurant.id === id));
+const fetchList = () => api.getList()
+  .then((restaurantsDm) => restaurantsDm.map(restaurantDmToVm));
 
-  foundRestaurant
-    ? res(restaurantDmToVm(foundRestaurant))
-    : rej(new Error('not found'));
-});
+const fetchById = (id: string) => api.get(id)
+  .then((restaurant) => restaurantDmToVm(restaurant));
+
+const updateUserRatingById = (id: string, userRating: number) => api.post(
+  id,
+  restaurantVmToDm({ userRating }),
+);
 
 const restaurantsApi = {
   fetchList,
   fetchById,
+  updateUserRatingById,
 };
 
 export default restaurantsApi;

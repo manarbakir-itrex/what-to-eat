@@ -4,12 +4,24 @@ import CardsWrapper from '../../common/cards-wrapper';
 import RestaurantCardDetails from '../restaurant-card-details';
 import { Restaurant } from '../../../types';
 
-export default function RestaurantCards({ restaurants }: {restaurants: Restaurant[]}) {
+type RestaurantCardsProps = {
+  restaurants: Restaurant[],
+  onUserRatingUpdate?: (id: string, rating: string) => void,
+};
+
+export default function RestaurantCards({
+  restaurants,
+  onUserRatingUpdate,
+}: RestaurantCardsProps) {
   const navigate = useNavigate();
 
   const onCardClick = useCallback((id) => {
     navigate(`/restaurants/${id}`);
   }, [navigate]);
+
+  const onUserRestaurantRatingUpdate = useCallback((id, rating) => {
+    onUserRatingUpdate && onUserRatingUpdate(id, rating);
+  }, []);
 
   return (
     <CardsWrapper>
@@ -17,8 +29,9 @@ export default function RestaurantCards({ restaurants }: {restaurants: Restauran
         restaurants?.map((restaurant) => (
           <RestaurantCardDetails
             key={restaurant.id}
-            data={restaurant}
+            restaurant={restaurant}
             onClick={onCardClick}
+            onUserRatingUpdate={(rating) => onUserRestaurantRatingUpdate(restaurant.id, rating)}
           />
         ))
       }

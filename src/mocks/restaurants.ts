@@ -6,6 +6,7 @@ const RESTAURANTS_MOCK = [
     img: 'https://images.pexels.com/photos/4913345/pexels-photo-4913345.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     address: '171 E Broadway, New York, NY 10002',
     cuisine_type: 'Asian',
+    rating: 5.5,
     operating_hours: {
       Monday: '5:30 pm - 11:00 pm',
       Tuesday: '5:30 pm - 12:00 am',
@@ -15,6 +16,8 @@ const RESTAURANTS_MOCK = [
       Saturday: '12:00 pm - 4:00 pm, 5:30 pm - 12:00 am',
       Sunday: '12:00 pm - 4:00 pm, 5:30 pm - 11:00 pm',
     },
+    // think of "user_rating" field as of result of "left join" to restaurant model
+    user_rating: 6,
   },
   {
     id: '2',
@@ -22,6 +25,7 @@ const RESTAURANTS_MOCK = [
     img: 'https://images.pexels.com/photos/1596884/pexels-photo-1596884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     address: '919 Fulton St, Brooklyn, NY 11238',
     cuisine_type: 'Pizza',
+    rating: 8.7,
     operating_hours: {
       Monday: '5:30 pm - 11:00 pm',
       Tuesday: '5:30 pm - 11:00 pm',
@@ -31,11 +35,14 @@ const RESTAURANTS_MOCK = [
       Saturday: '5:00 pm - 11:30 pm',
       Sunday: '12:00 pm - 3:00 pm, 5:00 pm - 11:00 pm',
     },
+    // think of "user_rating" field as of result of "left join" to restaurant model
+    user_rating: 8,
   },
   {
     id: '3',
     name: 'Kang Ho Dong Baekjeong',
     img: null,
+    rating: 8.8,
     address: '1 E 32nd St, New York, NY 10016',
     cuisine_type: 'Asian',
     operating_hours: {
@@ -54,6 +61,7 @@ const RESTAURANTS_MOCK = [
     img: null,
     address: '205 E Houston St, New York, NY 10002',
     cuisine_type: 'American',
+    rating: 6.6,
     operating_hours: {
       Monday: '8:00 am - 10:30 pm',
       Tuesday: '8:00 am - 10:30 pm',
@@ -70,6 +78,7 @@ const RESTAURANTS_MOCK = [
     img: null,
     address: '261 Moore St, Brooklyn, NY 11206',
     cuisine_type: 'Pizza',
+    rating: 8.8,
     operating_hours: {
       Monday: '11:00 am - 12:00 am',
       Tuesday: '11:00 am - 12:00 am',
@@ -86,6 +95,7 @@ const RESTAURANTS_MOCK = [
     img: 'https://images.pexels.com/photos/6605781/pexels-photo-6605781.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
     address: '454 Van Brunt St, Brooklyn, NY 11231',
     cuisine_type: 'American',
+    rating: 6.3,
     operating_hours: {
       Monday: 'Closed',
       Tuesday: '12:00 pm - 10:00 pm',
@@ -102,6 +112,7 @@ const RESTAURANTS_MOCK = [
     img: 'https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     address: '430 E 9th St, New York, NY 10009',
     cuisine_type: 'American',
+    rating: 9.4,
     operating_hours: {
       Monday: '11:30 am - 10:00 pm',
       Tuesday: 'Closed',
@@ -118,6 +129,7 @@ const RESTAURANTS_MOCK = [
     img: null,
     address: '131 Sullivan St, New York, NY 10012',
     cuisine_type: 'American',
+    rating: 7.3,
     operating_hours: {
       Monday: '11:30 am - 3:00 pm, 5:30 pm - 11:00 pm',
       Tuesday: '11:30 am - 3:00 pm, 5:30 pm - 11:00 pm',
@@ -134,6 +146,7 @@ const RESTAURANTS_MOCK = [
     img: 'https://images.pexels.com/photos/3887985/pexels-photo-3887985.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
     address: '1209 Jackson Ave, Queens, NY 11101',
     cuisine_type: 'Asian',
+    rating: 7.5,
     operating_hours: {
       Monday: '5:00 pm - 10:00 pm',
       Tuesday: '5:00 pm - 10:00 pm',
@@ -150,6 +163,7 @@ const RESTAURANTS_MOCK = [
     img: 'https://images.unsplash.com/photo-1613478549952-47b2db19e194?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80',
     address: '5-48 49th Ave, Queens, NY 11101',
     cuisine_type: 'Mexican',
+    rating: 7.9,
     operating_hours: {
       Monday: '5:00 pm - 12:00 am',
       Tuesday: '5:00 pm - 12:00 am',

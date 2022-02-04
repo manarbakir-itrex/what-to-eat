@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { StarFilled, StarOutlined } from '@ant-design/icons';
 import { Button, Space } from 'antd';
 import ChangeRatingModal from '../change-rating-modal';
@@ -9,20 +9,23 @@ type UserItemRatingProps = {
   itemName: string,
   userRating?: number | null,
   hideLabels?: boolean,
+  onUserItemRatingUpdate?: (rating: number) => void
 }
 
 export default function UserItemRating({
   itemName,
   userRating = 0,
   hideLabels,
+  onUserItemRatingUpdate,
 }: UserItemRatingProps) {
   const [currentUserRating, setCurrentUserRating] = useState(userRating);
   const [isRatingModalVisible, setIsRatingModalVisible] = useState(false);
 
-  const onRatingChange = (rating: number) => {
+  const onRatingChange = useCallback((rating: number) => {
     setCurrentUserRating(rating);
     setIsRatingModalVisible(false);
-  };
+    onUserItemRatingUpdate && onUserItemRatingUpdate(rating);
+  }, [onUserItemRatingUpdate]);
 
   const onClick = (e: any) => {
     e.stopPropagation();

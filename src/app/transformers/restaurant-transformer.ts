@@ -1,15 +1,5 @@
 /* eslint-disable camelcase */
-import { Restaurant } from '../types';
-
-type RestaurantDm = {
-  id: string,
-  name: string,
-  description?: string,
-  address: string,
-  cuisine_type: string,
-  operating_hours: any,
-  img?: string | null,
-}
+import { Restaurant, RestaurantDm } from '../types';
 
 export const restaurantDmToVm = ({
   id,
@@ -18,11 +8,21 @@ export const restaurantDmToVm = ({
   img,
   address,
   cuisine_type,
+  rating,
+  user_rating,
 }: RestaurantDm): Restaurant => ({
   id,
   name,
   description,
+  rating,
   address,
   imageUrl: img,
   cuisine: cuisine_type,
+  userRating: user_rating,
+});
+
+export const restaurantVmToDm = ({
+  userRating,
+}: Partial<Restaurant>): Partial<RestaurantDm> => ({
+  user_rating: userRating,
 });

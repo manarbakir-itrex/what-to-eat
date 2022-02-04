@@ -7,18 +7,26 @@ import AverageItemRating from '../../average-item-rating';
 import UserItemRating from '../../user-item-rating';
 
 type RestaurantDetailsProps = {
-  restaurant: Restaurant;
+  restaurant: Restaurant,
+  onUserRatingUpdate: (rating: number) => void,
 }
 
-export default function RestaurantDetails({ restaurant }: RestaurantDetailsProps) {
+export default function RestaurantDetails({
+  restaurant,
+  onUserRatingUpdate,
+}: RestaurantDetailsProps) {
   return (
     <div className="restaurant-details">
       <div className="restaurant-details_header">
         <h2 className="restaurant-details_name">{restaurant?.name}</h2>
 
         <div className="restaurant-details_rating">
-          <AverageItemRating currentRating={4} />
-          <UserItemRating itemName={restaurant.name} />
+          <AverageItemRating currentRating={restaurant.rating} />
+          <UserItemRating
+            itemName={restaurant.name}
+            userRating={restaurant.userRating}
+            onUserItemRatingUpdate={onUserRatingUpdate}
+          />
         </div>
       </div>
 

@@ -5,6 +5,7 @@ import {
   fetchingSingleRestaurantStart,
   fetchingSingleRestaurantSuccess,
 } from './actions';
+import toastService from '../services/toast-service';
 
 export const fetchRestaurants = () => async (dispatch: Function) => {
   try {
@@ -14,7 +15,7 @@ export const fetchRestaurants = () => async (dispatch: Function) => {
     dispatch(fetchingRestaurantsSuccess(data));
   } catch (e) {
     console.error(e);
-    // TODO add toast logic
+    toastService.error(e);
   }
 };
 
@@ -26,8 +27,19 @@ export const fetchRestaurantById = (id: string) => async (dispatch: Function) =>
     dispatch(fetchingSingleRestaurantSuccess(data));
   } catch (e) {
     console.error(e);
-    // TODO add toast logic
+    toastService.error(e);
   }
 };
 
-export default fetchRestaurants;
+export const updateRestaurantUserRatingById = (
+  id: string,
+  rating: number,
+) => async () => {
+  try {
+    await restaurantsApi.updateUserRatingById(id, rating);
+    toastService.success('Rating updated');
+  } catch (e) {
+    console.error(e);
+    toastService.error(e);
+  }
+};

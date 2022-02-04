@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectSingleRestaurantRecord } from '../redux/selectors';
-import { fetchRestaurantById } from '../redux/thunk';
+import { fetchRestaurantById, updateRestaurantUserRatingById } from '../redux/thunk';
 import RestaurantDetails from '../components/restaurant/restaurant-details';
 
 export default function RestaurantPage() {
@@ -16,10 +16,21 @@ export default function RestaurantPage() {
     }
   }, [id]);
 
+  const onUserRatingUpdate = useCallback((rating: number) => {
+    if (id) {
+      dispatch(updateRestaurantUserRatingById(id, rating));
+    }
+  }, [id]);
+
   return (
     <div>
       {
-        restaurant ? (<RestaurantDetails restaurant={restaurant} />) : (<div />)
+        restaurant ? (
+          <RestaurantDetails
+            restaurant={restaurant}
+            onUserRatingUpdate={onUserRatingUpdate}
+          />
+        ) : (<div />)
       }
     </div>
   );
