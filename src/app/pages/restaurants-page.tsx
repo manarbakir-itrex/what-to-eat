@@ -7,6 +7,7 @@ import RestaurantCards from '../components/restaurant/restaurant-cards';
 import FilterPanel from '../components/common/filter-panel';
 import { changeRestaurantsFilter, changeRestaurantsSort } from '../redux/actions';
 import { CUISINE_TYPES } from '../constants/constants';
+import { usePageTitle } from '../hooks/hooks';
 
 export default function RestaurantsPage() {
   const dispatch = useDispatch();
@@ -23,6 +24,8 @@ export default function RestaurantsPage() {
       initialValue: filters.cuisine_type,
     },
   ], []);
+
+  usePageTitle('Restaurants');
 
   useEffect(() => {
     dispatch(fetchRestaurants(filters, sort));

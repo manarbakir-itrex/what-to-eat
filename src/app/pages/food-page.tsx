@@ -8,11 +8,14 @@ import {
 } from '../redux/thunk';
 import FoodDetails from '../components/food/food-details';
 import { updateSingleFood } from '../redux/actions';
+import { usePageTitle } from '../hooks/hooks';
 
 export default function FoodPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const food = useSelector(selectSingleFoodRecord);
+
+  usePageTitle(food?.name);
 
   useEffect(() => {
     if (id) {

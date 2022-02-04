@@ -7,6 +7,7 @@ import { fetchFoods, updateFoodUserRatingById } from '../redux/thunk';
 import FilterPanel from '../components/common/filter-panel';
 import { changeFoodsFilter, changeFoodsSort } from '../redux/actions';
 import { FOOD_TAG_TYPES, FOOD_TYPES } from '../constants/constants';
+import { usePageTitle } from '../hooks/hooks';
 
 export default function FoodsPage() {
   const dispatch = useDispatch();
@@ -29,6 +30,8 @@ export default function FoodsPage() {
       initialValue: filters.tags,
     },
   ], []);
+
+  usePageTitle('Foods');
 
   useEffect(() => {
     dispatch(fetchFoods(filters, sort));

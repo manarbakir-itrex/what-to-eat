@@ -5,11 +5,14 @@ import { selectSingleRestaurantRecord } from '../redux/selectors';
 import { fetchRestaurantById, updateRestaurantUserRatingById } from '../redux/thunk';
 import RestaurantDetails from '../components/restaurant/restaurant-details';
 import { updateSingleRestaurant } from '../redux/actions';
+import { usePageTitle } from '../hooks/hooks';
 
 export default function RestaurantPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const restaurant = useSelector(selectSingleRestaurantRecord);
+
+  usePageTitle(restaurant?.name);
 
   useEffect(() => {
     if (id) {
