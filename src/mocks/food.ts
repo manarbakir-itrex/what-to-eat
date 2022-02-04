@@ -8,7 +8,7 @@ const FOODS_MOCK = [
     description: 'Burger with beef and cheese',
     img: 'https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     type: 'Burger',
-    tags: ['Cheese', 'Meat', 'Tomato', 'Salad', 'Pickles'],
+    tags: ['Cheese', 'Beef', 'Tomato', 'Salad', 'Pickles'],
     rating: 8.5,
     // think of "user_rating" field as of result of "left join" to restaurant model
     user_rating: 9,
@@ -22,7 +22,6 @@ const FOODS_MOCK = [
     tags: ['Cheese', 'Tomato'],
     rating: 8.3,
     // think of "user_rating" field as of result of "left join" to restaurant model
-    user_rating: 8,
   },
   {
     id: '3',
@@ -40,19 +39,18 @@ const FOODS_MOCK = [
     img: 'https://images.pexels.com/photos/884600/pexels-photo-884600.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     type: 'Ramen',
     tags: ['Noodles', 'Pork', 'Chicken', 'Fish', 'Eggs', 'Salad'],
-    rating: 5.5,
+    rating: 9.4,
     // think of "user_rating" field as of result of "left join" to restaurant model
-    user_rating: 6,
+    user_rating: 10,
   },
   {
     id: '5',
     name: 'Quesadilla',
     img: null,
     type: 'Quesadilla',
-    tags: ['Cheese', 'Meat', 'Salad'],
+    tags: ['Cheese', 'Chicken', 'Salad'],
     rating: 7.8,
     // think of "user_rating" field as of result of "left join" to restaurant model
-    user_rating: 7,
   },
   {
     id: '6',
@@ -72,7 +70,7 @@ const FOODS_MOCK = [
     tags: ['Beef', 'Fries'],
     rating: 8.2,
     // think of "user_rating" field as of result of "left join" to restaurant model
-    user_rating: 7,
+    user_rating: 10,
   },
   {
     id: '8',

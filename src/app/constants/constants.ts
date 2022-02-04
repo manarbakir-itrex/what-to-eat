@@ -8,6 +8,26 @@ export const CUISINE_TYPES = [
   'Russian',
 ];
 
+export const FOOD_TYPES = [
+  'Burger',
+  'Pizza',
+  'Ramen',
+  'Dumplings',
+  'Steak',
+  'Fish',
+];
+
+export const FOOD_TAG_TYPES = [
+  'Beef',
+  'Chicken',
+  'Pork',
+  'Fish',
+  'Cheese',
+  'Tomato',
+  'Salad',
+  'Pickles',
+];
+
 export const SORT_FIELDS = [
   {
     field: 'rating',

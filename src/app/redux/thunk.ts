@@ -1,8 +1,11 @@
 import restaurantsApi from '../api/restaurant-api';
 import {
-  fetchingFoodsStart, fetchingFoodsSuccess,
+  fetchingFoodsStart,
+  fetchingFoodsSuccess,
   fetchingRestaurantsStart,
-  fetchingRestaurantsSuccess, fetchingSingleFoodStart, fetchingSingleFoodSuccess,
+  fetchingRestaurantsSuccess,
+  fetchingSingleFoodStart,
+  fetchingSingleFoodSuccess,
   fetchingSingleRestaurantStart,
   fetchingSingleRestaurantSuccess,
 } from './actions';
@@ -46,10 +49,10 @@ export const updateRestaurantUserRatingById = (
   }
 };
 
-export const fetchFoods = () => async (dispatch: Function) => {
+export const fetchFoods = (filters?: any, sort?: string) => async (dispatch: Function) => {
   try {
     dispatch(fetchingFoodsStart());
-    const data = await foodApi.fetchList();
+    const data = await foodApi.fetchList(filters, sort);
 
     dispatch(fetchingFoodsSuccess(data));
   } catch (e) {

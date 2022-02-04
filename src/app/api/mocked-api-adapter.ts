@@ -45,14 +45,12 @@ export default class MockedApiAdapter<T> {
   };
 
   private static filterRecords = (records: any[], filters: any) => {
-    const filtersArr = objToKeyValueArr(filters);
+    const filtersArr = objToKeyValueArr(filters)
+      .filter((filter) => Array.isArray(filter.value) && filter.value.length);
+
     return !filtersArr.length
       ? records
       : records.filter((item: any) => filtersArr.some((filter) => {
-        if (!Array.isArray(filter.value) || !filter.value.length) {
-          return true;
-        }
-
         const field = item[filter.key];
 
         return Array.isArray(field)
