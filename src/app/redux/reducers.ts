@@ -1,6 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { Food, Restaurant } from '../types';
 import {
+  changeFoodsFilter,
+  changeFoodsSort,
+  changeRestaurantsFilter,
+  changeRestaurantsSort,
   fetchingFoodsStart,
   fetchingFoodsSuccess,
   fetchingRestaurantsStart,
@@ -10,15 +14,20 @@ import {
   fetchingSingleRestaurantStart,
   fetchingSingleRestaurantSuccess,
 } from './actions';
+import { SORT_FIELDS } from '../constants/constants';
 
 export type AppState = {
   restaurants: {
+    listFilters: { [key: string]: string[] },
+    listSort: string,
     records: Restaurant[],
     recordsAreLoading: boolean,
     singleRecord: Restaurant | null,
     singleRecordIsLoading: boolean,
   },
   foods: {
+    listFilters: { [key: string]: string[] },
+    listSort: string,
     records: Food[],
     recordsAreLoading: boolean,
     singleRecord: Food | null,
@@ -28,12 +37,16 @@ export type AppState = {
 
 const INITIAL_STATE: AppState = {
   restaurants: {
+    listFilters: {},
+    listSort: SORT_FIELDS[0].field,
     records: [],
     recordsAreLoading: false,
     singleRecord: null,
     singleRecordIsLoading: false,
   },
   foods: {
+    listFilters: {},
+    listSort: SORT_FIELDS[0].field,
     records: [],
     recordsAreLoading: false,
     singleRecord: null,
@@ -43,6 +56,7 @@ const INITIAL_STATE: AppState = {
 
 export const reducer = createReducer(INITIAL_STATE, (builder) => {
   builder
+    // Restaurants part
     .addCase(fetchingRestaurantsStart, (state) => ({
       ...state,
       restaurants: {
@@ -73,6 +87,22 @@ export const reducer = createReducer(INITIAL_STATE, (builder) => {
         singleRecordIsLoading: false,
       },
     }))
+    .addCase(changeRestaurantsFilter, (state, { payload }) => ({
+      ...state,
+      restaurants: {
+        ...state.restaurants,
+        listFilters: payload,
+      },
+    }))
+    .addCase(changeRestaurantsSort, (state, { payload }) => ({
+      ...state,
+      restaurants: {
+        ...state.restaurants,
+        listSort: payload,
+      },
+    }))
+
+    // Foods part
     .addCase(fetchingFoodsStart, (state) => ({
       ...state,
       foods: {
@@ -101,6 +131,20 @@ export const reducer = createReducer(INITIAL_STATE, (builder) => {
         ...state.foods,
         singleRecord: payload,
         singleRecordIsLoading: false,
+      },
+    }))
+    .addCase(changeFoodsFilter, (state, { payload }) => ({
+      ...state,
+      foods: {
+        ...state.foods,
+        listFilters: payload,
+      },
+    }))
+    .addCase(changeFoodsSort, (state, { payload }) => ({
+      ...state,
+      foods: {
+        ...state.foods,
+        listSort: payload,
       },
     }));
 });

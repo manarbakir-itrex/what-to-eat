@@ -1,6 +1,7 @@
 /**
  * This is a mock of backend work
  * */
+import { objToKeyValueArr } from '../services/utils';
 
 export default class MockedApiAdapter<T> {
   key: string;
@@ -43,8 +44,40 @@ export default class MockedApiAdapter<T> {
     }
   };
 
-  getList = () => new Promise<T[]>((res) => {
-    res(this.localData);
+  private static filterRecords = (records: any[], filters: any) => {
+    const filtersArr = objToKeyValueArr(filters);
+    return !filtersArr.length
+      ? records
+      : records.filter((item: any) => filtersArr.some((filter) => {
+        if (!Array.isArray(filter.value) || !filter.value.length) {
+          return true;
+        }
+
+        const field = item[filter.key];
+
+        return Array.isArray(field)
+          ? field.some((fieldEl) => filter.value.includes(fieldEl))
+          : filter.value.includes(field);
+      }));
+  };
+
+  private static sortRecordsByNumbers = (
+    records: any[],
+    sort: string,
+  ) => records.sort((a: any, b: any) => (b[sort] || 0) - (a[sort] || 0));
+
+  getList = (filters = {}, sort = '') => new Promise<T[]>((res) => {
+    let result = this.localData;
+
+    if (filters) {
+      result = MockedApiAdapter.filterRecords(result, filters);
+    }
+
+    if (sort) {
+      result = MockedApiAdapter.sortRecordsByNumbers(result, sort);
+    }
+
+    res(result);
   });
 
   get = (id: string) => new Promise<T>((res, rej) => {

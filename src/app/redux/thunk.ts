@@ -9,10 +9,10 @@ import {
 import toastService from '../services/toast-service';
 import foodApi from '../api/food-api';
 
-export const fetchRestaurants = () => async (dispatch: Function) => {
+export const fetchRestaurants = (filters?: any, sort?: string) => async (dispatch: Function) => {
   try {
     dispatch(fetchingRestaurantsStart());
-    const data = await restaurantsApi.fetchList();
+    const data = await restaurantsApi.fetchList(filters, sort);
 
     dispatch(fetchingRestaurantsSuccess(data));
   } catch (e) {

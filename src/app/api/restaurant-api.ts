@@ -5,7 +5,7 @@ import MockedApiAdapter from './mocked-api-adapter';
 
 const api = new MockedApiAdapter<RestaurantDm>('restaurants', RESTAURANTS_MOCK);
 
-const fetchList = () => api.getList()
+const fetchList = (filters?: any, sort?: string) => api.getList(filters, sort)
   .then((restaurantsDm) => restaurantsDm.map(restaurantDmToVm));
 
 const fetchById = (id: string) => api.get(id)
