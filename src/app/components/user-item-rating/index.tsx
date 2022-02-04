@@ -18,11 +18,9 @@ export default function UserItemRating({
   hideLabels,
   onUserItemRatingUpdate,
 }: UserItemRatingProps) {
-  const [currentUserRating, setCurrentUserRating] = useState(userRating);
   const [isRatingModalVisible, setIsRatingModalVisible] = useState(false);
 
   const onRatingChange = useCallback((rating: number) => {
-    setCurrentUserRating(rating);
     setIsRatingModalVisible(false);
     onUserItemRatingUpdate && onUserItemRatingUpdate(rating);
   }, [onUserItemRatingUpdate]);
@@ -41,12 +39,12 @@ export default function UserItemRating({
       >
         {!hideLabels && (<span className="item-rating_label">Your rating</span>)}
         {
-          currentUserRating
+          userRating
             ? (
               <Space className="item-rating_content">
                 <StarFilled />
                 <span>
-                  {currentUserRating}
+                  {userRating}
                 </span>
               </Space>
             )
@@ -61,7 +59,7 @@ export default function UserItemRating({
       <ChangeRatingModal
         itemName={itemName}
         isShown={isRatingModalVisible}
-        currentRating={currentUserRating}
+        currentRating={userRating}
         onRatingChange={onRatingChange}
         onCancel={() => setIsRatingModalVisible(false)}
       />

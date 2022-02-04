@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { selectSingleRestaurantRecord } from '../redux/selectors';
 import { fetchRestaurantById, updateRestaurantUserRatingById } from '../redux/thunk';
 import RestaurantDetails from '../components/restaurant/restaurant-details';
+import { updateSingleRestaurant } from '../redux/actions';
 
 export default function RestaurantPage() {
   const dispatch = useDispatch();
@@ -16,11 +17,15 @@ export default function RestaurantPage() {
     }
   }, [id]);
 
-  const onUserRatingUpdate = useCallback((rating: number) => {
-    if (id) {
-      dispatch(updateRestaurantUserRatingById(id, rating));
+  const onUserRatingUpdate = useCallback(async (userRating: number) => {
+    if (id && restaurant) {
+      await dispatch(updateRestaurantUserRatingById(id, userRating));
+      dispatch(updateSingleRestaurant({
+        ...restaurant,
+        userRating,
+      }));
     }
-  }, [id]);
+  }, [id, restaurant]);
 
   return (
     <div>

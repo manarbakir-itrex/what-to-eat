@@ -7,6 +7,7 @@ import {
   updateFoodUserRatingById,
 } from '../redux/thunk';
 import FoodDetails from '../components/food/food-details';
+import { updateSingleFood } from '../redux/actions';
 
 export default function FoodPage() {
   const dispatch = useDispatch();
@@ -19,11 +20,15 @@ export default function FoodPage() {
     }
   }, [id]);
 
-  const onUserRatingUpdate = useCallback((rating: number) => {
-    if (id) {
-      dispatch(updateFoodUserRatingById(id, rating));
+  const onUserRatingUpdate = useCallback(async (userRating: number) => {
+    if (id && food) {
+      await dispatch(updateFoodUserRatingById(id, userRating));
+      dispatch(updateSingleFood({
+        ...food,
+        userRating,
+      }));
     }
-  }, [id]);
+  }, [id, food]);
 
   return (
     <div>

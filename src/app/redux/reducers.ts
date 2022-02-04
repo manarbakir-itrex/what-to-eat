@@ -13,6 +13,8 @@ import {
   fetchingSingleFoodSuccess,
   fetchingSingleRestaurantStart,
   fetchingSingleRestaurantSuccess,
+  updateSingleFood,
+  updateSingleRestaurant,
 } from './actions';
 import { SORT_FIELDS } from '../constants/constants';
 
@@ -87,6 +89,13 @@ export const reducer = createReducer(INITIAL_STATE, (builder) => {
         singleRecordIsLoading: false,
       },
     }))
+    .addCase(updateSingleRestaurant, (state, { payload }) => ({
+      ...state,
+      restaurants: {
+        ...state.restaurants,
+        singleRecord: payload,
+      },
+    }))
     .addCase(changeRestaurantsFilter, (state, { payload }) => ({
       ...state,
       restaurants: {
@@ -131,6 +140,13 @@ export const reducer = createReducer(INITIAL_STATE, (builder) => {
         ...state.foods,
         singleRecord: payload,
         singleRecordIsLoading: false,
+      },
+    }))
+    .addCase(updateSingleFood, (state, { payload }) => ({
+      ...state,
+      foods: {
+        ...state.foods,
+        singleRecord: payload,
       },
     }))
     .addCase(changeFoodsFilter, (state, { payload }) => ({
