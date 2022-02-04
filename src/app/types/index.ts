@@ -1,1 +1,2 @@
-export * from './restaurant-type';
+export * from './restaurant-types';
+export * from './food-types';

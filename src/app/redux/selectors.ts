@@ -12,3 +12,15 @@ export const selectSingleRestaurantRecord = createSelector(
   selectRestaurantsState,
   (restaurantsData) => restaurantsData.singleRecord,
 );
+
+export const selectFoodsState = (state: AppState) => state.foods;
+
+export const selectFoodsRecords = createSelector(
+  selectFoodsState,
+  (foodsData) => foodsData.records,
+);
+
+export const selectSingleFoodRecord = createSelector(
+  selectFoodsState,
+  (foodsData) => foodsData.singleRecord,
+);

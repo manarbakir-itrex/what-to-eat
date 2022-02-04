@@ -1,0 +1,51 @@
+@import "/src/assets/styles/functions";
+
+.food-card {
+  width: 200px;
+
+  &_image-box {
+    margin: 0;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  &_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &_title {
+    margin: 0;
+  }
+
+  &_rating {
+    display: flex;
+    gap: gap(1);
+    margin-top: gap(0.25);
+
+    .user-item-rating .user-item-rating_content {
+      padding: gap(0.25) gap(0.5);
+    }
+  }
+
+  &_type {
+    display: inline-block;
+    margin-top: gap(0.5);
+  }
+
+  &_tags {
+    display: flex;
+    margin-top: gap(0.5);
+    overflow: hidden;
+
+    .ant-tag {
+      margin: 0;
+
+      + .ant-tag {
+        margin-left: gap(0.5);
+      }
+    }
+  }
+}

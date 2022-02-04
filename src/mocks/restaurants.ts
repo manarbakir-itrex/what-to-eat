@@ -1,3 +1,6 @@
+/**
+ * NOTE that if you want to update this mock you have to clean localStorage as well
+ */
 const RESTAURANTS_MOCK = [
   {
     id: '1',

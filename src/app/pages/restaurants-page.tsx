@@ -18,7 +18,7 @@ export default function RestaurantsPage() {
   }, []);
 
   return (
-    <div>
+    <>
       <PageHeader
         title="Restaurants"
       />
@@ -26,6 +26,6 @@ export default function RestaurantsPage() {
         restaurants={restaurants}
         onUserRatingUpdate={onUserRatingUpdate}
       />
-    </div>
+    </>
   );
 }

@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
-import { Card } from 'antd';
+import { Card, Space } from 'antd';
 import RestaurantsIcon from '../../../../assets/icons/restaurant.svg';
 import { Restaurant } from '../../../types';
-
-import './restaurant-card-details.scss';
 import AverageItemRating from '../../average-item-rating';
 import UserItemRating from '../../user-item-rating';
+
+import './restaurant-card-details.scss';
 
 type RestaurantCardProps = {
   restaurant: Restaurant,
@@ -52,9 +52,10 @@ export default function RestaurantCardDetails({
           hideLabels
         />
       </div>
-      <span className="restaurant-card_cuisine">
+      <Space className="restaurant-card_cuisine">
+        Cuisine:
         {restaurant.cuisine}
-      </span>
+      </Space>
     </Card>
   );
 }

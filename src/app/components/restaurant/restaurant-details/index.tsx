@@ -1,10 +1,10 @@
 import React from 'react';
 import RestaurantsIcon from '../../../../assets/icons/restaurant.svg';
 import { Restaurant } from '../../../types';
-
-import './restaunrant-details.scss';
 import AverageItemRating from '../../average-item-rating';
 import UserItemRating from '../../user-item-rating';
+
+import './restaunrant-details.scss';
 
 type RestaurantDetailsProps = {
   restaurant: Restaurant,

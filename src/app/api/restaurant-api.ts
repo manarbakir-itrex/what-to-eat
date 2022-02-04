@@ -1,5 +1,5 @@
 import RESTAURANTS_MOCK from '../../mocks/restaurants';
-import { restaurantDmToVm, restaurantVmToDm } from '../transformers/restaurant-transformer';
+import { restaurantDmToVm, restaurantVmToDm } from '../transformers';
 import { RestaurantDm } from '../types';
 import MockedApiAdapter from './mocked-api-adapter';
 
