@@ -1,14 +1,30 @@
 @import "/src/assets/styles/functions";
 
 .cards-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: gap();
   margin-top: gap();
 
   > .ant-card {
     width: 100%;
-    max-width: 280px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

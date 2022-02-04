@@ -1,8 +1,14 @@
 @import "/src/assets/styles/functions";
 
-.layout-container {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-  padding: gap(1.25);
+.app-container {
+  &.ant-layout {
+    min-height: 100vh;
+  }
+
+  &_content-container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: gap(1.25);
+  }
 }

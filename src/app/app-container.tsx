@@ -13,9 +13,9 @@ import './app-container.scss';
 export default function AppContainer() {
   return (
     <BrowserRouter>
-      <Layout>
+      <Layout className="app-container">
         <LayoutHeader />
-        <Content className="layout-container">
+        <Content className="app-container_content-container">
           <Routes>
             <Route path="/" element={<RestaurantsPage />} />
             <Route path="foods" element={<FoodsPage />} />

@@ -1,10 +1,11 @@
 @import "/src/assets/styles/functions";
+@import "/src/assets/styles/variables";
 
 .layout-header {
   display: flex;
   align-items: center;
   width: 100%;
-  background: #ddd;
+  background: $light_gray;
 }
 
 .logo {
